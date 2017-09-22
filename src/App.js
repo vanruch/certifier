@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
-import tokenArtifacts from './abi/AmberToken.json';
 import certifierArtifacts from './abi/Certifier.json';
 import './App.css';
 
@@ -21,14 +20,15 @@ class App extends Component {
   }
 
   updateAddress(input) {
-    this.setState({address: input.target.value});
+    this.setState({ address: input.target.value });
   }
 
   certify() {
     if (!this.state.address)
       return;
-    this.CertifierContract.methods.certify(this.state.address).send({from: this.web3.eth.accounts[0]})
-      .then(receipt => console.log(receipt));
+    web3.eth.getAccounts(accounts =>
+      this.CertifierContract.methods.certify(this.state.address).send({ from: accounts[0] })
+        .then(receipt => console.log(receipt)));
   }
 
   render() {
@@ -36,9 +36,9 @@ class App extends Component {
       <div className="App">
         <h1> Ambrosus checker </h1>
         <p> Check your address balance and verification status </p>
-        <p> <input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/> </p>
+        <p><input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/></p>
         <br/>
-        <button onClick={()=>this.certify()}>Certify</button>
+        <button onClick={() => this.certify()}>Certify</button>
       </div>
     );
   }
