@@ -16,8 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.web3 = new Web3(new Web3.providers.HttpProvider(INFURA_URL));
-    this.TokenContract = new this.web3.eth.Contract(tokenArtifacts.abi, TOKEN_ADDRESS);
+    this.web3 = new Web3(window.web3.currentProvider);
     this.CertifierContract = new this.web3.eth.Contract(certifierArtifacts.abi, CERTIFIER_ADDRESS);
   }
 
@@ -25,41 +24,21 @@ class App extends Component {
     this.setState({address: input.target.value});
   }
 
-  getAmberBalance() {
+  certify() {
     if (!this.state.address)
       return;
-    this.TokenContract.methods.balanceOf(this.state.address).call((error,balance) => {
-      if (error) {
-        console.error(error);
-        return;
-      }
-      this.setState({ambBalance: this.web3.utils.fromWei(balance, 'ether')});
-    });
-  }
-
-  isCertified() {
-    if (!this.state.address)
-      return;
-
-    this.CertifierContract.methods.certified(this.state.address).call((error, status) => {
-      if (error) {
-        console.error(error);
-        return;
-      }
-      this.setState({certified: status});
-    });
+    this.CertifierContract.methods.certify(this.state.address).send({from: this.web3.eth.accounts[0]})
+      .then(receipt => console.log(receipt));
   }
 
   render() {
     return (
       <div className="App">
         <h1> Ambrosus checker </h1>
-        <p> Check your address balance and verification status </p>        
-        <p> <input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/> </p>        
+        <p> Check your address balance and verification status </p>
+        <p> <input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/> </p>
         <br/>
-        <button onClick={()=>{this.isCertified(); this.getAmberBalance()}}>Check certification status and get Amber balance</button>
-        {typeof this.state.certified !== 'undefined' && (<p>Is certified: {this.state.certified.toString()}</p>)}
-        {this.state.ambBalance && (<p>Amber balance: {this.state.ambBalance}</p>)}
+        <button onClick={()=>this.certify()}>Certify</button>
       </div>
     );
   }
