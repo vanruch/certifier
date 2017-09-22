@@ -54,10 +54,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1> Ambrosus checker </h1>
-        <p> Check your address balance and verification status </p>
-        <p> <input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/> </p>
-        <button onClick={this.isCertified.bind(this)}>Check certification status</button>
-        <button onClick={this.getAmberBalance.bind(this)}>Check Amber balance</button>
+        <p> Check your address balance and verification status </p>        
+        <p> <input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/> </p>        
+        <br/>
+        <button onClick={()=>{this.isCertified(); this.getAmberBalance()}}>Check certification status and get Amber balance</button>
         {typeof this.state.certified !== 'undefined' && (<p>Is certified: {this.state.certified.toString()}</p>)}
         {this.state.ambBalance && (<p>Amber balance: {this.state.ambBalance}</p>)}
       </div>
