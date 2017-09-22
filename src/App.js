@@ -54,8 +54,8 @@ class App extends Component {
     return (
       <div className="App">
         <input type="text" placeholder="Your wallet address" onChange={this.updateAddress.bind(this)}/>
-        <button onClick={this.isCertified.bind(this)}>Check certification status</button>
-        <button onClick={this.getAmberBalance.bind(this)}>Check Amber balance</button>
+        <br/>
+        <button onClick={()=>{this.isCertified(); this.getAmberBalance()}}>Check certification status and get Amber balance</button>
         {typeof this.state.certified !== 'undefined' && (<p>Is certified: {this.state.certified.toString()}</p>)}
         {this.state.ambBalance && (<p>Amber balance: {this.state.ambBalance}</p>)}
       </div>
