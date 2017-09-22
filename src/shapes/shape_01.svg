@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1114px" height="693px" viewBox="0 0 1114 693" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="95.046247%" y1="30.0966682%" x2="-90.8036873%" y2="64.602071%" id="linearGradient-1">
+            <stop stop-color="#53A0FD" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#3023AE" stop-opacity="0.250679348" offset="73.6177401%"></stop>
+            <stop stop-color="#51035E" stop-opacity="0.49388587" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="in-progress" fill="url(#linearGradient-1)">
+            <g id="Page-1" transform="translate(411.000000, 573.500000) rotate(-274.000000) translate(-411.000000, -573.500000) translate(-589.000000, -643.000000)">
+                <path d="M254.149443,652.708424 L459.53049,1809.9619 C717.221074,1704.09309 1138.61547,1378.73596 1225.64034,1003.54876 C1351.37348,631.415315 905.621342,305.49663 254.149443,652.708424 Z" id="Fill-3" transform="translate(750.525699, 1157.499062) rotate(-24.000000) translate(-750.525699, -1157.499062) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

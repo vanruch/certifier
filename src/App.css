@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+
 .App {
   text-align: center;
 }
@@ -16,6 +20,41 @@
 
 .App-intro {
   font-size: large;
+}
+
+input {
+    width: 667px;
+    height: 59px;
+    line-height: 25px;
+    font-weight: 300;
+    font-size: 18px;
+    box-shadow: 2px 3px 17px 2px rgba(213, 221, 255, 0.5);
+    background-color: #fcfcff;
+    -webkit-box-sizing: content-box;
+    box-sizing: border-box;
+    border: 0;
+    padding: 0 0 0 33px;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Muli', sans-serif;
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 15px;
+    text-align: center;
+    background-color: #000040;
+    background-position-y: 0, 0px, 0px, 1500px, 4405px, 3895px;
+    background-position-x: 0, 0, 0, 100%, 100%, 100%;
+    background-image: url('./shapes/shape_01.svg'),
+                      url('./shapes/shape_02.svg'),
+                      url('./shapes/shape_03.svg'),
+                      url('./shapes/shape_04.svg'),
+                      url('./shapes/shape_05.svg'),
+                      url('./shapes/shape_06.svg');
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
 
 @keyframes App-logo-spin {
